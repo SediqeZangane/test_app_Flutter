@@ -15,8 +15,8 @@ class _StoreState extends State<Store> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Store",
-            style: TextStyle(color: Colors.black45),
+            "فروشگاه",
+            style: TextStyle(color: Colors.black45,fontFamily: "Vazir"),
           ),
           centerTitle: true,
           leading: Icon(
