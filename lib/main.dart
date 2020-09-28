@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/viedo12-ShopBottomNavigator.dart';
+import '';
 
 void main() => runApp(Store());
 
@@ -16,7 +18,7 @@ class _StoreState extends State<Store> {
         appBar: AppBar(
           title: Text(
             "فروشگاه",
-            style: TextStyle(color: Colors.black45,fontFamily: "Vazir"),
+            style: TextStyle(color: Colors.black45, fontFamily: "Vazir"),
           ),
           centerTitle: true,
           leading: Icon(
@@ -34,6 +36,12 @@ class _StoreState extends State<Store> {
             )
           ],
         ),
+        bottomNavigationBar: ShopBottomNavigator(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.red[900],
+          child: Icon(Icons.add),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
