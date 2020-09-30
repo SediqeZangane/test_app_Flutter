@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:test_app/viedo12-ShopBottomNavigator.dart';
-import '';
+import 'package:http/http.dart';
 
 void main() => runApp(Store());
 
@@ -10,6 +12,13 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchItems();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -55,6 +64,12 @@ class _StoreState extends State<Store> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
+  }
+
+  void fetchItems() async {
+    var url = "http://welearnacademy.ir/flutter/products_list.json";
+    Response response = await get(url);
+    print(utf8.decode(response.bodyBytes));
   }
 }
 
