@@ -28,13 +28,16 @@ class DescrictionPage extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          Align(
-            child: Text(
-              "Shoes",
-              style: TextStyle(
-                  fontFamily: "Varela", color: Colors.red[700], fontSize: 40),
+          Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Align(
+              child: Text(
+                "Shoes",
+                style: TextStyle(
+                    fontFamily: "Varela", color: Colors.red[700], fontSize: 40),
+              ),
+              alignment: Alignment.topLeft,
             ),
-            alignment: Alignment.topLeft,
           ),
           SizedBox(
             height: 5,
