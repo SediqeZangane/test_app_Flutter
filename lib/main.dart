@@ -89,26 +89,31 @@ Card generateItem(Product product) {
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30))),
     elevation: 4,
-    child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: 130,
-            height: 130,
-            child: Image.network(product.imageUrl),
-          ),
-          Text(
-            product.price,
-            style: TextStyle(
-                fontFamily: "Vazir", color: Colors.red[700], fontSize: 16),
-          ),
-          Text(
-            product.productName,
-            style: TextStyle(
-                fontFamily: "Vazir", color: Colors.blueGrey, fontSize: 14),
-          )
-        ],
+    child: InkWell(
+      onTap: () {
+        Navigator.of(context)
+      },
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              width: 130,
+              height: 130,
+              child: Image.network(product.imageUrl),
+            ),
+            Text(
+              product.price,
+              style: TextStyle(
+                  fontFamily: "Vazir", color: Colors.red[700], fontSize: 16),
+            ),
+            Text(
+              product.productName,
+              style: TextStyle(
+                  fontFamily: "Vazir", color: Colors.blueGrey, fontSize: 14),
+            )
+          ],
+        ),
       ),
     ),
   );
