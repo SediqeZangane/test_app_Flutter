@@ -62,9 +62,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Vazir
-       fonts:
-         - asset: fonts/Vazir.ttf
+    - family: Vazir
+      fonts:
+        - asset: fonts/Vazir.ttf
+    - family: Varela
+      fonts:
+        - asset: fonts/Varela-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
