@@ -4,8 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:test_app/viedo12-ShopBottomNavigator.dart';
 import 'package:http/http.dart';
 import 'Product-video15.dart';
+import 'DescriptionPage-video16.dart';
 
-void main() => runApp(Store());
+void main() => runApp(MainMaterial());
+
+class MainMaterial extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Store(),
+    );
+  }
+}
 
 class Store extends StatefulWidget {
   @override
@@ -24,48 +35,45 @@ class _StoreState extends State<Store> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "فروشگاه",
-            style: TextStyle(color: Colors.black45, fontFamily: "Vazir"),
-          ),
-          centerTitle: true,
-          leading: Icon(
-            Icons.arrow_back,
-            color: Colors.black45,
-          ),
-          backgroundColor: Colors.white,
-          elevation: 0,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.map,
-                color: Colors.black45,
-              ),
-            )
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "فروشگاه",
+          style: TextStyle(color: Colors.black45, fontFamily: "Vazir"),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(15),
-          child: GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 15,
-            children: List.generate(_items.length, (int position) {
-              return generateItem(_items[position]);
-            }),
-          ),
+        centerTitle: true,
+        leading: Icon(
+          Icons.arrow_back,
+          color: Colors.black45,
         ),
-        bottomNavigationBar: ShopBottomNavigator(),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red[900],
-          child: Icon(Icons.add),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.map,
+              color: Colors.black45,
+            ),
+          )
+        ],
       ),
+      body: Padding(
+        padding: EdgeInsets.all(15),
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 15,
+          children: List.generate(_items.length, (int position) {
+            return generateItem(_items[position], context);
+          }),
+        ),
+      ),
+      bottomNavigationBar: ShopBottomNavigator(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red[900],
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -84,7 +92,7 @@ class _StoreState extends State<Store> {
   }
 }
 
-Card generateItem(Product product) {
+Card generateItem(Product product, context) {
   return Card(
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30))),
@@ -92,6 +100,7 @@ Card generateItem(Product product) {
     child: InkWell(
       onTap: () {
         Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => DescrictionPage()));
       },
       child: Center(
         child: Column(
