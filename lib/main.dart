@@ -100,7 +100,7 @@ Card generateItem(Product product, context) {
     child: InkWell(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => DescrictionPage()));
+            .push(MaterialPageRoute(builder: (context) => DescrictionPage(product)));
       },
       child: Center(
         child: Column(
